@@ -1,0 +1,6 @@
+framework module Pods_MCal {
+  umbrella header "Pods-MCal-umbrella.h"
+
+  export *
+  module * { export * }
+}

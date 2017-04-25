@@ -1,0 +1,6 @@
+framework module Pods_MCalUITests {
+  umbrella header "Pods-MCalUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
