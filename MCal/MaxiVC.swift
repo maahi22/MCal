@@ -11,8 +11,8 @@ import CoreData
 
 class MaxiVC: UIViewController {
 
-    var editManageobj = NSManagedObject()
-    
+   // var editManageobj = NSManagedObject()
+     var editManageobj : NSManagedObject!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +29,13 @@ class MaxiVC: UIViewController {
         
         
         
+       // editManageobj.value(forKey: "title")  as! String
         
     }
 
-    func loadEditEvent(event:NSManagedObject)  {
-        editManageobj = event
-    }
+//    func loadEditEvent(event:NSManagedObject)  {
+//        editManageobj = event
+//    }
     
     func EditClick() {
         

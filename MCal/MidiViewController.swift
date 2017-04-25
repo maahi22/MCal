@@ -15,7 +15,8 @@ class MidiViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var midiTableView: UITableView!
     var dateArray = NSMutableArray()
     var eventArray = NSMutableArray()
-    var editEvent = NSManagedObject()
+    var editEvent : NSManagedObject!
+//    var editEvent = NSManagedObject()
     var indexpath = NSIndexPath()
     
     @IBOutlet weak var btnAddEvent: UIButton!
@@ -96,30 +97,14 @@ class MidiViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    
-    
+
         if segue.identifier == "toMaxiview"{
             if let nextViewController = segue.destination as? MaxiVC{
-                
-                let dict = dateArray.object(at: indexpath.section) as? [String : Any]
-                let str = dict?["OnlyDate"] as! String?
-                let predicate = NSPredicate(format: "startDate == %@",str! )
-                let arr = eventArray.filtered(using: predicate) as NSArray
-
-                if arr.count > 0 {
-                    //nextViewController.editManageobj = arr.object(at: indexpath.row) as! NSManagedObject
-                    
-                    nextViewController.loadEditEvent(event: arr.object(at: indexpath.row) as! NSManagedObject)
-                }
-                
-                
-                
-            
+              nextViewController.editManageobj =  editEvent
             }
             
         }
-    
-    
+
     }
     
     
@@ -303,7 +288,7 @@ class MidiViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         if arr.count > 0 {
             
             self.indexpath = indexPath as NSIndexPath;
-            //self.editEvent = arr[indexPath.row] as! NSManagedObject
+            editEvent = arr[indexPath.row] as! NSManagedObject
             self.performSegue(withIdentifier: "toMaxiview", sender: self)
             
           

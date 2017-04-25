@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate,EventTypeVCDelegate {
+class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate,EventTypeVCDelegate ,AddAttendeesVCDelegate{
 
     
     @IBOutlet weak var tblAddEdit: UITableView!
@@ -53,6 +53,13 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         if segue.identifier == "toeventType"{
             if let nextViewController = segue.destination as? EventTypeVC{
+                
+                nextViewController.delegate = self;
+                
+            }
+        }
+        else if segue.identifier == "toAddAttendes" {
+            if let nextViewController = segue.destination as? AddAttendeesVC{
                 
                 nextViewController.delegate = self;
                 
@@ -119,7 +126,15 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 
                 return cell
                 
+            }
+            
+            else if  indexPath.row == 7 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AttendeesCell", for: indexPath ) as! AttendeesCell
+            return cell
+                
             }else{
+                
                 let cell = tableView.dequeueReusableCell(withIdentifier: "AddEditCell", for: indexPath ) as! AddEditCell
                 cell.lblTitle.text = listArray.object(at: indexPath.row) as? String
                 if cell.lblTitle.text == "All-day" {
@@ -176,6 +191,8 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
             }
             else if indexPath.row == 4 {
                 self.performSegue(withIdentifier: "toeventType", sender: self)
+            }else if indexPath.row == 7 {
+                self.performSegue(withIdentifier: "toAddAttendes", sender: self)
             }
             
         
@@ -198,6 +215,51 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         let cell = tblAddEdit.cellForRow(at: indexpath) as! AddEditCell
         cell.lblTitle.text = type;
+        
+        
+    }
+    
+    
+    func savedAttendes(attendies:NSArray){
+        let indexpath = IndexPath(row: 7, section: 1) as IndexPath
+        let cell = tblAddEdit.cellForRow(at: indexpath) as! AttendeesCell
+        
+        var xaxes = 10
+        for obj in attendies{
+            
+           // var imageViewObject :UIImageView
+           
+            
+            
+            let myImageView:UIImageView = UIImageView()
+            //myImageView.image = myImage
+            myImageView.contentMode = UIViewContentMode.scaleAspectFit
+            myImageView.frame.size.width = 32
+            myImageView.frame.size.height = 32
+           // myImageView.center = self.view.center
+            myImageView.frame.origin.y = 2
+           // myScrollView.addSubview(myImageView)
+            myImageView.backgroundColor = UIColor.red
+            myImageView.frame.origin.x = CGFloat(xaxes)
+            myImageView.layer.cornerRadius = 15.0
+            
+//            imageViewObject.frame.size.width = 35.0
+//            imageViewObject.frame.size.height = 35
+//            //imageViewObject.center = self.view.center
+//            imageViewObject.frame.origin.y = 5
+//            
+//          //  imageViewObject.frame = CGRect(5.0, 5.0, 35.0, 35.0)
+//            //imageViewObject = UIImageView(frame:CGRectMake(CGFloat(xaxes), 5, 35, 35));
+//           // imageViewObject.image = UIImage(named:"imageName.png")
+//            imageViewObject.backgroundColor = UIColor.gray
+            
+            cell.scrollView.addSubview(myImageView)
+            
+            xaxes += 40
+            
+        }
+        
+        
         
         
     }

@@ -22,6 +22,9 @@
 		0F04777B1E4B6DAC00496018 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F0477791E4B6DAC00496018 /* LaunchScreen.storyboard */; };
 		0F0477861E4B6DAC00496018 /* MCalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0477851E4B6DAC00496018 /* MCalTests.swift */; };
 		0F0477911E4B6DAC00496018 /* MCalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0477901E4B6DAC00496018 /* MCalUITests.swift */; };
+		0F1F7ACE1EAF4D5100902983 /* AddAttendeesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F7ACD1EAF4D5100902983 /* AddAttendeesVC.swift */; };
+		0F1F7AD01EAF56F800902983 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F7ACF1EAF56F800902983 /* ContactCell.swift */; };
+		0F1F7AD21EAF5E0500902983 /* AttendeesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F7AD11EAF5E0500902983 /* AttendeesCell.swift */; };
 		0FFF27611EAB794C001AFBCD /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF27601EAB794C001AFBCD /* DateHelper.swift */; };
 		0FFF27671EAB8974001AFBCD /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF27661EAB8974001AFBCD /* EventCell.swift */; };
 		0FFF27691EAB9EDB001AFBCD /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF27681EAB9EDB001AFBCD /* ApiHelper.swift */; };
@@ -76,6 +79,9 @@
 		0F04778C1E4B6DAC00496018 /* MCalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F0477901E4B6DAC00496018 /* MCalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCalUITests.swift; sourceTree = "<group>"; };
 		0F0477921E4B6DAC00496018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F1F7ACD1EAF4D5100902983 /* AddAttendeesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAttendeesVC.swift; sourceTree = "<group>"; };
+		0F1F7ACF1EAF56F800902983 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		0F1F7AD11EAF5E0500902983 /* AttendeesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendeesCell.swift; sourceTree = "<group>"; };
 		0FCC2272E0E0E62EB04A56E8 /* Pods-MCalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCalUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCalUITests/Pods-MCalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		0FFF27601EAB794C001AFBCD /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		0FFF27661EAB8974001AFBCD /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
@@ -198,6 +204,8 @@
 				0F01AA131EAE37E900AC46B8 /* DatePickerCell.swift */,
 				0F01AA151EAE380000AC46B8 /* AddEditCell.swift */,
 				0F01AA171EAE493E00AC46B8 /* AddEventTitleCell.swift */,
+				0F1F7ACF1EAF56F800902983 /* ContactCell.swift */,
+				0F1F7AD11EAF5E0500902983 /* AttendeesCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -221,6 +229,7 @@
 				0FFF27711EAC0040001AFBCD /* LocationVC.swift */,
 				0FFF27731EAC0053001AFBCD /* AddAttendiesVC.swift */,
 				0F01AA1C1EAF0A7D00AC46B8 /* EventTypeVC.swift */,
+				0F1F7ACD1EAF4D5100902983 /* AddAttendeesVC.swift */,
 			);
 			name = AddEdit;
 			sourceTree = "<group>";
@@ -536,11 +545,13 @@
 				0F00C0991EA3746400761ED4 /* MidiViewController.swift in Sources */,
 				0FFF882A1EAC8B29001B57E3 /* SyncCalVC.swift in Sources */,
 				0FFF27691EAB9EDB001AFBCD /* ApiHelper.swift in Sources */,
+				0F1F7ACE1EAF4D5100902983 /* AddAttendeesVC.swift in Sources */,
 				0FFF88281EAC878D001B57E3 /* SyncHelper.swift in Sources */,
 				0F00C09D1EA3756B00761ED4 /* EventAddEditVC.swift in Sources */,
 				0FFF27721EAC0040001AFBCD /* LocationVC.swift in Sources */,
 				0FFF27671EAB8974001AFBCD /* EventCell.swift in Sources */,
 				0FFF276D1EAB9F48001AFBCD /* Constant&Micros.swift in Sources */,
+				0F1F7AD01EAF56F800902983 /* ContactCell.swift in Sources */,
 				0F0477701E4B6DAC00496018 /* ViewController.swift in Sources */,
 				0F01AA141EAE37E900AC46B8 /* DatePickerCell.swift in Sources */,
 				0FFF276B1EAB9F05001AFBCD /* DBHelper.swift in Sources */,
@@ -549,6 +560,7 @@
 				0F04776E1E4B6DAC00496018 /* AppDelegate.swift in Sources */,
 				0F01AA161EAE380000AC46B8 /* AddEditCell.swift in Sources */,
 				0F01AA1D1EAF0A7D00AC46B8 /* EventTypeVC.swift in Sources */,
+				0F1F7AD21EAF5E0500902983 /* AttendeesCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
