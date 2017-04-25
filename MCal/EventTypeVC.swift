@@ -28,6 +28,9 @@ class EventTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+         self.automaticallyAdjustsScrollViewInsets = false
+        
+        
         typeArray.add("Personal")
         typeArray.add("Business")
         typeArray.add("Professional")
@@ -93,7 +96,7 @@ class EventTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let value = typeArray.object(at: indexPath.row)
         delegate?.selectedEventType(type:value as! String)
         
-        self.navigationController?.popViewController(animated: true)
+        let _ = self.navigationController?.popViewController(animated: true)
     }
     
 

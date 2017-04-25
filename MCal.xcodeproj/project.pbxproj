@@ -25,13 +25,13 @@
 		0F1F7ACE1EAF4D5100902983 /* AddAttendeesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F7ACD1EAF4D5100902983 /* AddAttendeesVC.swift */; };
 		0F1F7AD01EAF56F800902983 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F7ACF1EAF56F800902983 /* ContactCell.swift */; };
 		0F1F7AD21EAF5E0500902983 /* AttendeesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F7AD11EAF5E0500902983 /* AttendeesCell.swift */; };
+		0F1F7AD41EAF7F5D00902983 /* idGenrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1F7AD31EAF7F5D00902983 /* idGenrator.swift */; };
 		0FFF27611EAB794C001AFBCD /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF27601EAB794C001AFBCD /* DateHelper.swift */; };
 		0FFF27671EAB8974001AFBCD /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF27661EAB8974001AFBCD /* EventCell.swift */; };
 		0FFF27691EAB9EDB001AFBCD /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF27681EAB9EDB001AFBCD /* ApiHelper.swift */; };
 		0FFF276B1EAB9F05001AFBCD /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF276A1EAB9F05001AFBCD /* DBHelper.swift */; };
 		0FFF276D1EAB9F48001AFBCD /* Constant&Micros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF276C1EAB9F48001AFBCD /* Constant&Micros.swift */; };
 		0FFF27721EAC0040001AFBCD /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF27711EAC0040001AFBCD /* LocationVC.swift */; };
-		0FFF27741EAC0053001AFBCD /* AddAttendiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF27731EAC0053001AFBCD /* AddAttendiesVC.swift */; };
 		0FFF88281EAC878D001B57E3 /* SyncHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF88271EAC878D001B57E3 /* SyncHelper.swift */; };
 		0FFF882A1EAC8B29001B57E3 /* SyncCalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF88291EAC8B29001B57E3 /* SyncCalVC.swift */; };
 		5149C734C04D0DA50F37367D /* Pods_MCalTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6627728AA40C8A8C0CF1FB12 /* Pods_MCalTests.framework */; };
@@ -82,6 +82,7 @@
 		0F1F7ACD1EAF4D5100902983 /* AddAttendeesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAttendeesVC.swift; sourceTree = "<group>"; };
 		0F1F7ACF1EAF56F800902983 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		0F1F7AD11EAF5E0500902983 /* AttendeesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendeesCell.swift; sourceTree = "<group>"; };
+		0F1F7AD31EAF7F5D00902983 /* idGenrator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = idGenrator.swift; sourceTree = "<group>"; };
 		0FCC2272E0E0E62EB04A56E8 /* Pods-MCalUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCalUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCalUITests/Pods-MCalUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		0FFF27601EAB794C001AFBCD /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		0FFF27661EAB8974001AFBCD /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
@@ -89,7 +90,6 @@
 		0FFF276A1EAB9F05001AFBCD /* DBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
 		0FFF276C1EAB9F48001AFBCD /* Constant&Micros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Constant&Micros.swift"; sourceTree = "<group>"; };
 		0FFF27711EAC0040001AFBCD /* LocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
-		0FFF27731EAC0053001AFBCD /* AddAttendiesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAttendiesVC.swift; sourceTree = "<group>"; };
 		0FFF88271EAC878D001B57E3 /* SyncHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncHelper.swift; sourceTree = "<group>"; };
 		0FFF88291EAC8B29001B57E3 /* SyncCalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.swift; path = SyncCalVC.swift; sourceTree = "<group>"; };
 		16165EC479F806DDE8EF41B8 /* Pods-MCalTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCalTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCalTests/Pods-MCalTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -193,6 +193,7 @@
 				0FFF27601EAB794C001AFBCD /* DateHelper.swift */,
 				0FFF276C1EAB9F48001AFBCD /* Constant&Micros.swift */,
 				0FFF88271EAC878D001B57E3 /* SyncHelper.swift */,
+				0F1F7AD31EAF7F5D00902983 /* idGenrator.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -227,7 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				0FFF27711EAC0040001AFBCD /* LocationVC.swift */,
-				0FFF27731EAC0053001AFBCD /* AddAttendiesVC.swift */,
 				0F01AA1C1EAF0A7D00AC46B8 /* EventTypeVC.swift */,
 				0F1F7ACD1EAF4D5100902983 /* AddAttendeesVC.swift */,
 			);
@@ -555,7 +555,7 @@
 				0F0477701E4B6DAC00496018 /* ViewController.swift in Sources */,
 				0F01AA141EAE37E900AC46B8 /* DatePickerCell.swift in Sources */,
 				0FFF276B1EAB9F05001AFBCD /* DBHelper.swift in Sources */,
-				0FFF27741EAC0053001AFBCD /* AddAttendiesVC.swift in Sources */,
+				0F1F7AD41EAF7F5D00902983 /* idGenrator.swift in Sources */,
 				0FFF27611EAB794C001AFBCD /* DateHelper.swift in Sources */,
 				0F04776E1E4B6DAC00496018 /* AppDelegate.swift in Sources */,
 				0F01AA161EAE380000AC46B8 /* AddEditCell.swift in Sources */,

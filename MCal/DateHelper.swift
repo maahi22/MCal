@@ -56,7 +56,13 @@ class DateHelper: NSObject {
     }
 
     
-    
+    public func getpicketDateTime (date : Date) -> (String) {
+        
+        let  dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE, dd MMM YYYY   hh:mm a"
+        let dateStr = dateFormatter .string(from: date)
+        return dateStr
+    }
     
     
 }

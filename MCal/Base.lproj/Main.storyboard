@@ -110,10 +110,10 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" rowHeight="141" id="mDn-v2-YEs" customClass="EventCell" customModule="MCal" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="119.5" width="1000" height="141"/>
+                                        <rect key="frame" x="0.0" y="119.5" width="375" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mDn-v2-YEs" id="GYb-HV-b1t">
-                                            <frame key="frameInset" width="1000" height="140.5"/>
+                                            <frame key="frameInset" width="375" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qjr-9J-r7h">
@@ -195,13 +195,14 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="Qjr-9J-r7h" secondAttribute="bottom" id="5gR-4L-Yh4"/>
-                                                <constraint firstItem="K2G-Os-PIM" firstAttribute="top" secondItem="GYb-HV-b1t" secondAttribute="top" id="7hg-cA-Ja8"/>
-                                                <constraint firstAttribute="bottom" secondItem="K2G-Os-PIM" secondAttribute="bottom" id="D4K-Zg-HY3"/>
-                                                <constraint firstAttribute="trailing" secondItem="K2G-Os-PIM" secondAttribute="trailing" id="INL-cF-BpT"/>
+                                                <constraint firstAttribute="bottom" secondItem="Qjr-9J-r7h" secondAttribute="bottom" constant="10" id="5gR-4L-Yh4"/>
+                                                <constraint firstItem="K2G-Os-PIM" firstAttribute="top" secondItem="GYb-HV-b1t" secondAttribute="top" constant="10" id="7hg-cA-Ja8"/>
+                                                <constraint firstAttribute="bottom" secondItem="K2G-Os-PIM" secondAttribute="bottom" constant="10" id="D4K-Zg-HY3"/>
+                                                <constraint firstAttribute="trailing" secondItem="K2G-Os-PIM" secondAttribute="trailing" constant="10" id="INL-cF-BpT"/>
                                                 <constraint firstItem="Qjr-9J-r7h" firstAttribute="leading" secondItem="GYb-HV-b1t" secondAttribute="leading" constant="10" id="PsH-gJ-g2z"/>
-                                                <constraint firstItem="Qjr-9J-r7h" firstAttribute="top" secondItem="GYb-HV-b1t" secondAttribute="top" id="aMc-qN-dpq"/>
+                                                <constraint firstItem="Qjr-9J-r7h" firstAttribute="top" secondItem="GYb-HV-b1t" secondAttribute="top" constant="10" id="aMc-qN-dpq"/>
                                                 <constraint firstItem="K2G-Os-PIM" firstAttribute="leading" secondItem="Qjr-9J-r7h" secondAttribute="trailing" constant="2" id="lUT-uM-WDK"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -221,6 +222,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MEq-Kr-koG" id="431-Yo-E3i">
                                             <frame key="frameInset" width="1000" height="45.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -426,6 +428,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="eventImageView" destination="gQo-Be-ZXb" id="qaX-wR-xUd"/>
+                        <outlet property="lblDates" destination="WfJ-Tw-ohI" id="MUU-aG-3SA"/>
+                        <outlet property="lblEndtime" destination="W76-eO-NeI" id="Wew-fk-gw7"/>
+                        <outlet property="lblLocation" destination="1FK-v2-bOm" id="NOk-l2-JW4"/>
+                        <outlet property="lblStarttime" destination="0AX-kK-oJH" id="UMQ-sg-GW0"/>
+                        <outlet property="lblTitle" destination="Iqt-lc-VDS" id="dh7-A5-XOn"/>
                         <segue destination="AKx-J4-lRn" kind="show" identifier="toAddEdit" id="AXB-lt-JMV"/>
                     </connections>
                 </viewController>
@@ -452,7 +460,7 @@
                                         <rect key="frame" x="0.0" y="119.5" width="375" height="235"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nvr-Ts-ZMU" id="9cm-cg-b0C">
-                                            <frame key="frameInset" width="375" height="234.5"/>
+                                            <frame key="frameInset" width="375" height="234"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="E9m-Ma-NHo">
@@ -461,6 +469,9 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="514733800.80266303">
                                                         <!--2017-04-24 13:36:40 +0000-->
                                                     </date>
+                                                    <connections>
+                                                        <action selector="DatepicketValueChange:" destination="AKx-J4-lRn" eventType="valueChanged" id="L05-XI-3Te"/>
+                                                    </connections>
                                                 </datePicker>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aI7-3K-N0W">
                                                     <constraints>
@@ -471,7 +482,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9H-Xl-7Nh">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9H-Xl-7Nh">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="Nb8-mp-13a"/>
                                                     </constraints>
@@ -482,10 +493,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="aI7-3K-N0W" firstAttribute="top" secondItem="9cm-cg-b0C" secondAttribute="top" constant="5" id="7pn-E6-izE"/>
-                                                <constraint firstItem="aI7-3K-N0W" firstAttribute="leading" secondItem="9cm-cg-b0C" secondAttribute="leading" constant="5" id="Woa-du-4fw"/>
+                                                <constraint firstItem="aI7-3K-N0W" firstAttribute="leading" secondItem="9cm-cg-b0C" secondAttribute="leading" constant="10" id="Woa-du-4fw"/>
                                                 <constraint firstItem="o9H-Xl-7Nh" firstAttribute="leading" secondItem="aI7-3K-N0W" secondAttribute="trailing" constant="10" id="fJb-TR-4sw"/>
                                                 <constraint firstItem="o9H-Xl-7Nh" firstAttribute="top" secondItem="9cm-cg-b0C" secondAttribute="top" constant="5" id="fNV-2V-x4C"/>
-                                                <constraint firstAttribute="trailing" secondItem="o9H-Xl-7Nh" secondAttribute="trailing" constant="6" id="n2R-gq-SUU"/>
+                                                <constraint firstAttribute="trailing" secondItem="o9H-Xl-7Nh" secondAttribute="trailing" constant="16" id="n2R-gq-SUU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -606,7 +617,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Event" id="C1O-Ew-etg">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="I53-bZ-Rdr"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="I53-bZ-Rdr">
+                            <connections>
+                                <action selector="saveEvent:" destination="AKx-J4-lRn" id="N45-hX-7Mm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tblAddEdit" destination="xO5-pZ-FeR" id="7ii-3T-m2c"/>
@@ -616,7 +631,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mFC-7M-1XD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3124" y="-595.05247376311854"/>
+            <point key="canvasLocation" x="3265" y="-705"/>
         </scene>
         <!--Add Attendes-->
         <scene sceneID="XWC-Mo-MLW">

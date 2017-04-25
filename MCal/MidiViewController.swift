@@ -103,6 +103,12 @@ class MidiViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
               nextViewController.editManageobj =  editEvent
             }
             
+        }else if segue.identifier == "toAddEdit"{
+            if let nextViewController = segue.destination as? EventAddEditVC{
+                nextViewController.editSts =  false
+            }
+            
+         
         }
 
     }
@@ -230,7 +236,7 @@ class MidiViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         cell.txtViewEventTitle.text = eventDict.value(forKey: "title")  as! String//["title"] as? String
         cell.txtViewEventAddress.text = eventDict.value(forKey: "address") as? String
-        cell.viewEventtype.backgroundColor = UIColor.clear
+        cell.viewEventtype.backgroundColor = UIColor.white
         
         cell.lblStrtDatetime.text = DateHelper.sharedInstance.getTimeFromDate(date: (eventDict.value(forKey: "startDateTime") as? Date)!)
         cell.lblEndDatetime.text = DateHelper.sharedInstance.getTimeFromDate(date: (eventDict.value(forKey: "endDateTime") as? Date)!)

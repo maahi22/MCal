@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Attendees" syncable="YES">
+        <attribute name="attendeesId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="eventId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,6 +27,7 @@
         <attribute name="endInstanceTime" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="eventId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="eventStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="eventType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hasNotes" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="isAllDay" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -53,6 +55,8 @@
         <attribute name="endInstanceTime" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="eventId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="eventStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="eventType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hasNotes" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="isAllDay" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isCalenderEvent" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -60,6 +64,7 @@
         <attribute name="isRecurring" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isRoadTravel" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isTravel" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rRule" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="startDateTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -74,15 +79,16 @@
         <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="eventId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="locationId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="calevents" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CalEvents" inverseName="locations" inverseEntity="CalEvents" syncable="YES"/>
         <relationship name="events" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Events" inverseName="location" inverseEntity="Events" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Attendees" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Attendees" positionX="-63" positionY="-18" width="128" height="165"/>
         <element name="Calendars" positionX="-36" positionY="153" width="128" height="120"/>
-        <element name="CalEvents" positionX="-45" positionY="108" width="128" height="420"/>
-        <element name="Events" positionX="-54" positionY="-9" width="128" height="390"/>
-        <element name="Locations" positionX="-54" positionY="135" width="128" height="165"/>
+        <element name="CalEvents" positionX="-45" positionY="108" width="128" height="435"/>
+        <element name="Events" positionX="-54" positionY="-9" width="128" height="435"/>
+        <element name="Locations" positionX="-54" positionY="135" width="128" height="180"/>
     </elements>
 </model>

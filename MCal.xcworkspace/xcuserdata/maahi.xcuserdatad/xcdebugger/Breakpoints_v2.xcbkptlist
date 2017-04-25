@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCal/MidiViewController.swift"
-            timestampString = "514791016.336003"
+            timestampString = "514827719.144949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "MidiViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCal/MidiViewController.swift"
-            timestampString = "514791016.336003"
+            timestampString = "514827719.144949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCal/MidiViewController.swift"
-            timestampString = "514791016.336003"
+            timestampString = "514827719.144949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
             landmarkName = "clickMiniView(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -426,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCal/MidiViewController.swift"
-            timestampString = "514791016.336003"
+            timestampString = "514827719.144949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "configureCell(cell:atIndexPath:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -442,11 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCal/MidiViewController.swift"
-            timestampString = "514791016.336003"
+            timestampString = "514827719.144949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "231"
-            endingLineNumber = "231"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "configureCell(cell:atIndexPath:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -490,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCal/MidiViewController.swift"
-            timestampString = "514791016.336003"
+            timestampString = "514827719.144949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
+            startingLineNumber = "313"
+            endingLineNumber = "313"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -506,11 +506,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCal/MaxiVC.swift"
-            timestampString = "514724487.594789"
+            timestampString = "514820357.50663"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "MaxiVC"
             landmarkType = "3">
          </BreakpointContent>
@@ -522,11 +522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCal/EventAddEditVC.swift"
-            timestampString = "514810635.205806"
+            timestampString = "514837556.064731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -538,11 +538,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCal/MidiViewController.swift"
-            timestampString = "514791070.085746"
+            timestampString = "514827719.144949"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "308"
-            endingLineNumber = "308"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -554,11 +554,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCal/EventAddEditVC.swift"
-            timestampString = "514810764.213371"
+            timestampString = "514837556.064731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "savedAttendes(attendies:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -570,12 +570,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MCal/EventAddEditVC.swift"
-            timestampString = "514810892.928736"
+            timestampString = "514837556.064731"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
+            startingLineNumber = "298"
+            endingLineNumber = "298"
             landmarkName = "savedAttendes(attendies:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MCal/DBHelper.swift"
+            timestampString = "514839918.882279"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "getLocalCalEventInDB()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

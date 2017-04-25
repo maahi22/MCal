@@ -32,7 +32,7 @@ class AddAttendeesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
 
         // Do any additional setup after loading the view.
         
-        
+         self.automaticallyAdjustsScrollViewInsets = false
        
         
         
@@ -141,6 +141,7 @@ class AddAttendeesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
 
     @IBAction func DoneClicked(_ sender: AnyObject) {
         delegate?.savedAttendes(attendies: selectedContact)
-        self.navigationController?.popViewController(animated: true)
+        //self.navigationController?.popViewController(animated: true)
+        let _ = self.navigationController?.popViewController(animated: true)
     }
 }

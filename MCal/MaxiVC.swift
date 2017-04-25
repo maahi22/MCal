@@ -14,6 +14,15 @@ class MaxiVC: UIViewController {
    // var editManageobj = NSManagedObject()
      var editManageobj : NSManagedObject!
     
+    @IBOutlet weak var eventImageView: UIImageView!
+    @IBOutlet weak var lblDates: UILabel!
+    @IBOutlet weak var lblLocation: UITextView!
+    @IBOutlet weak var lblTitle: UITextView!
+    @IBOutlet weak var lblStarttime: UILabel!
+    @IBOutlet weak var lblEndtime: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,6 +38,17 @@ class MaxiVC: UIViewController {
         
         
         
+        lblTitle.text = editManageobj.value(forKey: "title")  as! String?
+        lblLocation.text = editManageobj.value(forKey: "displayName")  as! String?
+        
+        
+        lblStarttime.text = DateHelper.sharedInstance.getTimeFromDate(date: (editManageobj.value(forKey: "startDateTime") as? Date)!)
+        lblEndtime.text = DateHelper.sharedInstance.getTimeFromDate(date: (editManageobj.value(forKey: "endDateTime") as? Date)!)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE, dd MMM"
+        lblDates.text = dateFormatter.string(from: (editManageobj.value(forKey: "startDateTime") as? Date)!)
+        
+        
        // editManageobj.value(forKey: "title")  as! String
         
     }
@@ -39,11 +59,14 @@ class MaxiVC: UIViewController {
     
     func EditClick() {
         
-        let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "AddEdit") as! EventAddEditVC
         
+        self.performSegue(withIdentifier: "toAddEdit", sender: self)
+        
+        
+        /*let vc = UIStoryboard(name:"Main", bundle:nil).instantiateViewController(withIdentifier: "AddEdit") as! EventAddEditVC
         //vc.resultsArray = self.resultsArray
         self.navigationController?.pushViewController(vc, animated:true)
-        //toAddEdit
+        //toAddEdit*/
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,8 +85,8 @@ class MaxiVC: UIViewController {
     
         if segue.identifier == "toAddEdit"{
             if let nextViewController = segue.destination as? EventAddEditVC{
-                // nextViewController.editDict=nil;
-                
+                    nextViewController.editManageobj = editManageobj;
+                    nextViewController.editSts =  true
             }
             
         }
