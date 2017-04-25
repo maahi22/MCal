@@ -9,5 +9,8 @@
 import UIKit
 
 class ApiHelper: NSObject {
+    static let sharedInstance = ApiHelper()
+    private override init() {} //This prevents others from using the default '()' initializer for this class.
+    
 
 }

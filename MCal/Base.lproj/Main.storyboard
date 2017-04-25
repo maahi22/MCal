@@ -581,11 +581,55 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tblAddEdit" destination="xO5-pZ-FeR" id="7ii-3T-m2c"/>
+                        <segue destination="wxO-kp-qMt" kind="show" identifier="toeventType" id="Xoj-kE-l4i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mFC-7M-1XD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3124" y="-595.05247376311854"/>
+        </scene>
+        <!--Event TypeVC-->
+        <scene sceneID="DxI-bf-Qg9">
+            <objects>
+                <viewController id="wxO-kp-qMt" customClass="EventTypeVC" customModule="MCal" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k0L-ox-i6f"/>
+                        <viewControllerLayoutGuide type="bottom" id="iDy-Wo-a4m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WLq-oN-drh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Exn-f6-pQw">
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="S39-5o-hr6">
+                                        <rect key="frame" x="0.0" y="120" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S39-5o-hr6" id="WsU-mx-NSu">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wxO-kp-qMt" id="lui-Pp-ELC"/>
+                                    <outlet property="delegate" destination="wxO-kp-qMt" id="hcm-Hu-0W5"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Exn-f6-pQw" firstAttribute="leading" secondItem="WLq-oN-drh" secondAttribute="leading" id="GRa-Is-krr"/>
+                            <constraint firstAttribute="trailing" secondItem="Exn-f6-pQw" secondAttribute="trailing" id="RCO-gD-SEA"/>
+                            <constraint firstItem="iDy-Wo-a4m" firstAttribute="top" secondItem="Exn-f6-pQw" secondAttribute="bottom" id="c6C-gq-WRW"/>
+                            <constraint firstItem="Exn-f6-pQw" firstAttribute="top" secondItem="k0L-ox-i6f" secondAttribute="bottom" id="uWU-xQ-uK0"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ke8-7z-sQe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3837.5999999999999" y="-586.05697151424295"/>
         </scene>
         <!--Registration-->
         <scene sceneID="LPq-ws-rBl">

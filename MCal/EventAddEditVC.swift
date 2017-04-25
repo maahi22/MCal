@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate,EventTypeVCDelegate {
 
     
     @IBOutlet weak var tblAddEdit: UITableView!
@@ -27,6 +27,7 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
         listArray.add("Ends");
         listArray.add("All-day");
         listArray.add("Repeat");
+        listArray.add("Type");
         listArray.add("Travel Time");
         listArray.add("Image");
         listArray.add("add Attendes");
@@ -41,15 +42,24 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        
+        if segue.identifier == "toeventType"{
+            if let nextViewController = segue.destination as? EventTypeVC{
+                
+                nextViewController.delegate = self;
+                
+            }
+        }
     }
-    */
+    
 
     
     
@@ -154,7 +164,7 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 }else{
                     open1 = true;
                 }
-                
+                tblAddEdit .reloadData()
                 
             }else if indexPath.row == 1 {
                 if open2 {
@@ -162,10 +172,19 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 }else{
                     open2 = true;
                 }
-                
+                tblAddEdit .reloadData()
             }
-            tblAddEdit .reloadData()
+            else if indexPath.row == 4 {
+                self.performSegue(withIdentifier: "toeventType", sender: self)
+            }
+            
+        
+            
+            
         }else{
+            
+            
+            
             
         }
         
@@ -174,5 +193,12 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     
     
-    
+    func selectedEventType(type:String){
+        let indexpath = IndexPath(row: 4, section: 1) as IndexPath
+        
+        let cell = tblAddEdit.cellForRow(at: indexpath) as! AddEditCell
+        cell.lblTitle.text = type;
+        
+        
+    }
 }
