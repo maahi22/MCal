@@ -256,6 +256,43 @@ class DBHelper: NSObject {
         
     }
     
+    
+    
+    public func UpdateMCalEventDB (eventObj :NSManagedObject , callback:((_ Result :Bool) -> Void)){
+      
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.getContext()
+        
+        
+        let strttime = eventObj.value(forKey: "startDateTime") as! Date
+        let timeinterval = strttime.timeIntervalSince1970
+        eventObj.setValue(timeinterval, forKey: "startInstanceTime")
+        
+        let endtime = eventObj.value(forKey: "endDateTime") as! Date
+        let endtimeInterval = endtime.timeIntervalSince1970
+        eventObj.setValue(endtimeInterval, forKey: "endInstanceTime")
+        
+        let fmt = DateFormatter()
+        fmt.dateFormat = "dd/MM/yyyy"
+        eventObj.setValue(fmt.string(from:strttime), forKey: "startDate")
+        
+        
+        
+        //save the object
+        do {
+            try context.save()
+            print("saved!")
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        } catch {
+            
+        }
+        
+        callback(true)
+    }
+    
+    
+    
    /* public func UpdateMCalEventInDB (eventManageObj :NSManagedObject ,eventID : String){
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

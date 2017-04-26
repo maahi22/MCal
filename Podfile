@@ -9,7 +9,11 @@ target 'MCal' do
 
     pod 'Alamofire'
     pod 'SwiftyJSON'
-
+    
+    use_frameworks!
+    
+    pod 'Fabric'
+    pod 'Crashlytics'
 
   target 'MCalTests' do
     inherit! :search_paths

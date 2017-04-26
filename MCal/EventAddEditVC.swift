@@ -432,6 +432,19 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
             editManageobj.setValue(endDateTime, forKey: "endDateTime")
             
             
+            DBHelper.sharedInstance.UpdateMCalEventDB(eventObj: editManageobj) { (result) in
+                
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: refreshDate), object: nil)
+            
+                
+                let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController];
+                self.navigationController!.popToViewController(viewControllers[viewControllers.count - 3], animated: true);
+
+                
+                //let _ = self.navigationController?.popViewController(animated: true)
+            }
+
+            
         }else{
             
             
@@ -443,6 +456,8 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
             eventDictionary.setValue(title, forKey: "title")
         
             DBHelper.sharedInstance.AddMCalEventInDB(eventData: eventDictionary) { (result) in
+                
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: refreshDate), object: nil)
                 
                 let _ = self.navigationController?.popViewController(animated: true)
             }

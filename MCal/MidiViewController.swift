@@ -65,8 +65,21 @@ class MidiViewController: UIViewController {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         print(documentsPath)
     
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.refreshData), name: NSNotification.Name(rawValue: refreshDate), object: nil)
     }
 
+    
+    
+    //Refresh DATa
+    func refreshData(notificationObj:NSNotification)  {
+        self.eventArray = NSMutableArray(array: DBHelper.sharedInstance.getLocalCalEventInDB())
+        midiTableView.reloadData()
+        
+    }
+    
+    
 
     func reloadTodaysDate() {
         let fmt = DateFormatter()

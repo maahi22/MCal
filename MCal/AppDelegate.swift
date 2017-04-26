@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Fabric
+import Crashlytics
 
 
 @UIApplicationMain
@@ -32,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-        
+        Fabric.with([Crashlytics.self])
         
         SyncHelper.sharedInstance.initialiseObserverForLocalcalnderUpdate()
         
