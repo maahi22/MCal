@@ -113,7 +113,7 @@
                                         <rect key="frame" x="0.0" y="119.5" width="375" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mDn-v2-YEs" id="GYb-HV-b1t">
-                                            <frame key="frameInset" width="375" height="140"/>
+                                            <frame key="frameInset" width="375" height="140.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qjr-9J-r7h">
@@ -217,10 +217,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="46" id="MEq-Kr-koG">
-                                        <rect key="frame" x="0.0" y="260.5" width="1000" height="46"/>
+                                        <rect key="frame" x="0.0" y="260.5" width="375" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MEq-Kr-koG" id="431-Yo-E3i">
-                                            <frame key="frameInset" width="1000" height="45.5"/>
+                                            <frame key="frameInset" width="375" height="45.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
@@ -456,11 +456,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="xO5-pZ-FeR">
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DatePickerCell" rowHeight="235" id="nvr-Ts-ZMU" customClass="DatePickerCell" customModule="MCal" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DatePickerCell" rowHeight="235" id="nvr-Ts-ZMU" customClass="DatePickerCell" customModule="MCal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="119.5" width="375" height="235"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nvr-Ts-ZMU" id="9cm-cg-b0C">
-                                            <frame key="frameInset" width="375" height="234"/>
+                                            <frame key="frameInset" width="375" height="234.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="E9m-Ma-NHo">
@@ -505,7 +505,7 @@
                                             <outlet property="lblStartDate" destination="o9H-Xl-7Nh" id="FEY-aB-V6v"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddEditCell" rowHeight="50" id="W6j-gA-yha" customClass="AddEditCell" customModule="MCal" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddEditCell" rowHeight="50" id="W6j-gA-yha" customClass="AddEditCell" customModule="MCal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="354.5" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W6j-gA-yha" id="r4m-2C-YJT">
@@ -548,7 +548,7 @@
                                             <outlet property="logoImage" destination="EJ7-24-MKR" id="Ehf-De-BpL"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddEventTitleCell" rowHeight="41" id="T4s-H7-rka" customClass="AddEventTitleCell" customModule="MCal" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddEventTitleCell" rowHeight="41" id="T4s-H7-rka" customClass="AddEventTitleCell" customModule="MCal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="404.5" width="375" height="41"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="T4s-H7-rka" id="I9i-n4-0SL">
@@ -572,11 +572,11 @@
                                             <outlet property="txtTitle" destination="XfE-vs-3LI" id="K2n-hh-fG7"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttendeesCell" rowHeight="50" id="5F4-4W-g91" customClass="AttendeesCell" customModule="MCal" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttendeesCell" rowHeight="50" id="5F4-4W-g91" customClass="AttendeesCell" customModule="MCal" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="445.5" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5F4-4W-g91" id="Ohr-Jd-8FC">
-                                            <frame key="frameInset" width="375" height="49"/>
+                                            <frame key="frameInset" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PzE-Wf-yEz"/>
@@ -658,7 +658,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m3B-AL-DdF" id="mvc-Mp-eW6">
-                                            <frame key="frameInset" width="375" height="69"/>
+                                            <frame key="frameInset" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HaL-dI-vGP">
@@ -847,10 +847,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="dXv-Qc-Jl0">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="311" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dXv-Qc-Jl0" id="1JQ-E9-TOT">
-                                            <frame key="frameInset" width="1000" height="43.5"/>
+                                            <frame key="frameInset" width="311" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

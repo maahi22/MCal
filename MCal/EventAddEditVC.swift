@@ -258,9 +258,7 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 self.performSegue(withIdentifier: "toAddAttendes", sender: self)
             }
             
-        
-            
-            
+         
         }else{
             
             
@@ -278,8 +276,12 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         let cell = tblAddEdit.cellForRow(at: indexpath) as! AddEditCell
         cell.lblTitle.text = type;
-        eventDictionary.setValue(type, forKey: "type")
         
+        if editSts{
+            editManageobj.setValue(type, forKey: "type")
+        }else{
+            eventDictionary.setValue(type, forKey: "type")
+        }
     }
     
     
@@ -367,10 +369,7 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
 
         
     }
-    
-    
-    
-    
+
     @IBAction func DatepicketValueChange(_ sender: UIDatePicker) {
         
         let datePicker = sender as UIDatePicker
@@ -382,11 +381,15 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
         if(open1){
             
             startDateTime = datePicker.date
-            
             let indexpath = IndexPath(row: 0, section: 1) as IndexPath
             let cell = tblAddEdit.cellForRow(at: indexpath) as! DatePickerCell
-            
             cell.lblStartDate.text = dateFormatter.string(from: datePicker.date) as String
+            
+            endDateTime = datePicker.date.addingTimeInterval(60*60)
+            let indexpath2 = IndexPath(row: 1, section: 1) as IndexPath
+            let cell2 = tblAddEdit.cellForRow(at: indexpath2) as! DatePickerCell
+            cell2.lblStartDate.text = dateFormatter.string(from: endDateTime)
+
         }else if(open2){
             endDateTime = datePicker.date
             
@@ -422,18 +425,30 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
         let cell = tblAddEdit.cellForRow(at: indexpath) as! AddEventTitleCell
         let title = cell.txtTitle.text
         
-        let eventid = idGenrator.sharedInstance.NewEventid() as String
-        eventDictionary.setValue(eventid, forKey: "eventId")
-        eventDictionary.setValue(startDateTime, forKey: "startDateTime")
-        eventDictionary.setValue(endDateTime, forKey: "endDateTime")
-        eventDictionary.setValue(startDateTime, forKey: "creationDate")
-        eventDictionary.setValue(title, forKey: "title")
         
-        
-        DBHelper.sharedInstance.AddMCalEventInDB(eventData: eventDictionary) { (result) in
+        if editSts {
+            editManageobj.setValue(title, forKey: "title")
+            editManageobj.setValue(startDateTime, forKey: "startDateTime")
+            editManageobj.setValue(endDateTime, forKey: "endDateTime")
             
-            let _ = self.navigationController?.popViewController(animated: true)
+            
+        }else{
+            
+            
+            let eventid = idGenrator.sharedInstance.NewEventid() as String
+            eventDictionary.setValue(eventid, forKey: "eventId")
+            eventDictionary.setValue(startDateTime, forKey: "startDateTime")
+            eventDictionary.setValue(endDateTime, forKey: "endDateTime")
+            eventDictionary.setValue(startDateTime, forKey: "creationDate")
+            eventDictionary.setValue(title, forKey: "title")
+        
+            DBHelper.sharedInstance.AddMCalEventInDB(eventData: eventDictionary) { (result) in
+                
+                let _ = self.navigationController?.popViewController(animated: true)
+            }
+            
         }
+        
         
     }
     

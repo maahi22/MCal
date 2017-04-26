@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MidiViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class MidiViewController: UIViewController {
 
     
     @IBOutlet weak var midiTableView: UITableView!
@@ -114,9 +114,52 @@ class MidiViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     
+   
+  //bar Buttons
+    
+    @IBAction func clickNotification(_ sender: AnyObject) {
+        
+        
+    }
     
     
-     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    
+    @IBAction func clickMiniView(_ sender: AnyObject) {
+        
+        
+    }
+    
+    @IBAction func clickMidi(_ sender: AnyObject) {
+        
+        
+    }
+    
+    
+    @IBAction func clickMenu(_ sender: AnyObject) {
+        
+        
+    }
+    
+    
+    
+    
+    @IBAction func clickAddEvent(_ sender: AnyObject) {
+        
+        
+        
+    }
+    
+    
+    
+}
+
+
+
+extension MidiViewController: UITableViewDelegate,UITableViewDataSource{
+    
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         let dict = dateArray.object(at: indexPath.section) as? [String : Any]
         let str = dict?["OnlyDate"] as! String?
@@ -125,13 +168,13 @@ class MidiViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         if arr.count > 0 {
             return 120
         }else{
-         return 45
+            return 45
         }
     }
     
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         let dict = dateArray.object(at: indexPath.section) as? [String : Any]
         let str = dict?["OnlyDate"] as! String?
         let predicate = NSPredicate(format: "startDate == %@",str! )
@@ -139,17 +182,17 @@ class MidiViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         if arr.count > 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell") as! EventCell
             // Configure Table View Cell
-              configureCell(cell: cell, atIndexPath: indexPath as NSIndexPath)
-              return cell
+            configureCell(cell: cell, atIndexPath: indexPath as NSIndexPath)
+            return cell
         }else{
             let cell = midiTableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath )
             return cell
         }
-      //  Cell
-      //  let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell")
+        //  Cell
+        //  let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell")
         // Configure Table View Cell
-      //  configureCell(cell: cell!, atIndexPath: indexPath as NSIndexPath)
-      //  return cell!
+        //  configureCell(cell: cell!, atIndexPath: indexPath as NSIndexPath)
+        //  return cell!
     }
     
     func numberOfSections(in tableView: UITableView) -> Int{
@@ -157,10 +200,10 @@ class MidiViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     
-//func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
+    //func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
     
     /*
- 
+     
      override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
      let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CustomHeader") as! CustomHeader
      
@@ -170,26 +213,26 @@ class MidiViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
      
      return headerView
      }
- */
-/*private  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-    
-        let header:UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        
-        header.textLabel?.textColor = UIColor.red
-        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        header.textLabel?.frame = header.frame
-        header.textLabel?.textAlignment = NSTextAlignment.center
-       header.backgroundColor=UIColor.green
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEE, dd MMM yyyy"
-        
-        let date = dateArray.index(of: section)
-        print(date)
-        header.textLabel?.text = "ABCD"//dateFormatter.string(from: date as Date)
-    
-        return header;
-    }*/
+     */
+    /*private  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+     
+     let header:UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+     
+     header.textLabel?.textColor = UIColor.red
+     header.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+     header.textLabel?.frame = header.frame
+     header.textLabel?.textAlignment = NSTextAlignment.center
+     header.backgroundColor=UIColor.green
+     
+     let dateFormatter = DateFormatter()
+     dateFormatter.dateFormat = "EEE, dd MMM yyyy"
+     
+     let date = dateArray.index(of: section)
+     print(date)
+     header.textLabel?.text = "ABCD"//dateFormatter.string(from: date as Date)
+     
+     return header;
+     }*/
     
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -242,23 +285,23 @@ class MidiViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.lblEndDatetime.text = DateHelper.sharedInstance.getTimeFromDate(date: (eventDict.value(forKey: "endDateTime") as? Date)!)
     }
     
-
+    
     
     //Delegate Methods
     
-//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        
-//        return true;
-//        
-//    }
+    //    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    //
+    //        return true;
+    //
+    //    }
     
-//     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        
-//   // func tableView(_ tableView: UITableView, commiteditingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        
-//        
-//        
-//    }
+    //     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    //
+    //   // func tableView(_ tableView: UITableView, commiteditingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    //
+    //
+    //
+    //    }
     
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
@@ -289,7 +332,7 @@ class MidiViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         let str = dict?["OnlyDate"] as! String?
         let predicate = NSPredicate(format: "startDate == %@",str! )
         let arr = eventArray.filtered(using: predicate) as NSArray
-
+        
         
         if arr.count > 0 {
             
@@ -297,7 +340,7 @@ class MidiViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             editEvent = arr[indexPath.row] as! NSManagedObject
             self.performSegue(withIdentifier: "toMaxiview", sender: self)
             
-          
+            
             
         }else{
             return
@@ -311,41 +354,6 @@ class MidiViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         
         
-    }
-  //bar Buttons
-    
-    @IBAction func clickNotification(_ sender: AnyObject) {
-        
-        
-    }
-    
-    
-    
-    @IBAction func clickMiniView(_ sender: AnyObject) {
-        
-        
-    }
-    
-    @IBAction func clickMidi(_ sender: AnyObject) {
-        
-        
-    }
-    
-    
-    @IBAction func clickMenu(_ sender: AnyObject) {
-        
-        
-    }
-    
-    
-    
-    
-    @IBAction func clickAddEvent(_ sender: AnyObject) {
-        
-        
-        
-    }
-    
-    
+    }  
     
 }
