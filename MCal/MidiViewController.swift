@@ -272,7 +272,7 @@ extension MidiViewController: UITableViewDelegate,UITableViewDataSource{
         let predicate = NSPredicate(format: "startDate == %@",str! )
         let arr = eventArray.filtered(using: predicate) as NSArray
         
-        print("section  \(section )  \( arr.count)");
+    //    print("section  \(section )  \( arr.count)");
         
         if arr.count > 0 {
             return arr.count

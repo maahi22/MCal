@@ -49,6 +49,15 @@ class MaxiVC: UIViewController {
         lblDates.text = dateFormatter.string(from: (editManageobj.value(forKey: "startDateTime") as? Date)!)
         
         
+        
+        
+        if editManageobj != nil && editManageobj.value(forKey: "image") != nil{
+            
+            eventImageView.image = UIImage(data:editManageobj.value(forKey: "image") as! Data,scale:1.0)
+            
+        }
+        
+        
        // editManageobj.value(forKey: "title")  as! String
         
     }
@@ -75,6 +84,25 @@ class MaxiVC: UIViewController {
     }
     
 
+    @IBAction func DeleteEvent(_ sender: AnyObject) {
+        if editManageobj.value(forKey: "isCalenderEvent") != nil && editManageobj.value(forKey: "isCalenderEvent") as! Bool {
+            DBHelper.sharedInstance.DeleteLocalCalEventDB(eventObj: editManageobj, callback: { (success) in
+                
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: refreshDate), object: nil)
+              let _ = self.navigationController?.popViewController(animated: true)
+                
+            })
+        }else
+        {
+            DBHelper.sharedInstance.DeleteMCalEventDB(eventObj: editManageobj, callback: { (success) in
+            
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: refreshDate), object: nil)
+               let _ = self.navigationController?.popViewController(animated: true)
+                
+            })
+        }
+        
+    }
     
     // MARK: - Navigation
 

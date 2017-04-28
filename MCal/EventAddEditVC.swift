@@ -10,23 +10,21 @@ import UIKit
 import CoreData
 
 
-class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate,EventTypeVCDelegate ,AddAttendeesVCDelegate{
+class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate,EventTypeVCDelegate ,AddAttendeesVCDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
     
     @IBOutlet weak var tblAddEdit: UITableView!
-    var eventDictionary = NSMutableDictionary()
+    var imagePicker = UIImagePickerController()
     
+    var eventDictionary = NSMutableDictionary()
     var listArray = NSMutableArray()
     var open1 = Bool()
     var open2 = Bool()
-    
     var  editSts = Bool()
-    
-    
     var startDateTime = Date();
     var endDateTime = Date()
     var editManageobj : NSManagedObject!
-    
+    var selImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -191,8 +189,21 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                     if editSts && eventDictionary.value(forKey: "eventType") != nil{
                       cell.lblTitle.text = eventDictionary.value(forKey: "eventType") as! String?
                     }
+                    cell.logoImage.image = UIImage.init(named: "type")
                 }
-                
+                else if indexPath.row == 3 {
+                    cell.logoImage.image = UIImage.init(named: "repete")
+                }else if indexPath.row == 2 {
+                    cell.logoImage.image = UIImage.init(named: "AllDay")
+                }else if indexPath.row == 5 {
+                    cell.logoImage.image = UIImage.init(named: "traveltime")
+                }else if indexPath.row == 6 {
+                    cell.logoImage.image = UIImage.init(named: "Image")
+                }else if indexPath.row == 7 {
+                    cell.logoImage.image = UIImage.init(named: "attendes")
+                }else if indexPath.row == 8 {
+                    cell.logoImage.image = UIImage.init(named: "Notes")
+                }
                 
                 return cell
             }
@@ -206,14 +217,15 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                     cell.txtTitle.text = editManageobj.value(forKey: "title") as! String?
                 }else{
                     cell.txtTitle.placeholder = "Title"}
-            
+            //cell.logoImage.image = UIImage.init(named: "Notes")
+           
             }else{
                 if (editSts && editManageobj.value(forKey: "displayName") != nil) {
                     cell.txtTitle.text = editManageobj.value(forKey: "displayName") as! String?
                 }else{
                     cell.txtTitle.placeholder = "Location"}
                     }
-            
+            //cell.logoImage.image = UIImage.init(named: "Notes")
             return cell
             
         }
@@ -256,6 +268,8 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
                 self.performSegue(withIdentifier: "toeventType", sender: self)
             }else if indexPath.row == 7 {
                 self.performSegue(withIdentifier: "toAddAttendes", sender: self)
+            }else if indexPath.row == 6 {
+                self.ClickImage()
             }
             
          
@@ -269,6 +283,55 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         
     }
+    
+    
+    func ClickImage() {
+        imagePicker =  UIImagePickerController()
+        imagePicker.delegate = self
+        
+        if imagePicker.sourceType == .camera {
+            imagePicker.sourceType = .camera
+            present(imagePicker, animated: true, completion: nil)
+        }else{
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+            present(imagePicker, animated: true, completion: nil)
+            
+            
+        }
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : AnyObject])
+    {
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
+//        myImageView.contentMode = .scaleAspectFit //3
+//        myImageView.image = chosenImage //4
+//        imageArray.add(chosenImage)
+        
+        
+        let indexpath = IndexPath(row: 6, section: 1) as IndexPath
+        let cell = tblAddEdit.cellForRow(at: indexpath) as! AddEditCell
+        cell.logoImage?.image = chosenImage
+        selImage = chosenImage
+        
+        
+        
+        dismiss(animated:true, completion: nil) //5
+    }
+    
+    
+    
+    
+    
+    
     
     
     func selectedEventType(type:String){
@@ -407,17 +470,6 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @IBAction func saveEvent(_ sender: AnyObject) {
         
         let indexpath = IndexPath(row: 0, section: 0) as IndexPath
@@ -427,6 +479,11 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         
         if editSts {
+            
+            let imgData = UIImageJPEGRepresentation(selImage, 1)
+            editManageobj.setValue(imgData, forKey: "image")
+            
+            
             editManageobj.setValue(title, forKey: "title")
             editManageobj.setValue(startDateTime, forKey: "startDateTime")
             editManageobj.setValue(endDateTime, forKey: "endDateTime")
@@ -447,8 +504,12 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
             
         }else{
             
+            let imgData = UIImageJPEGRepresentation(selImage, 1)
+            eventDictionary.setValue(imgData, forKey: "image")
+            
             
             let eventid = idGenrator.sharedInstance.NewEventid() as String
+            
             eventDictionary.setValue(eventid, forKey: "eventId")
             eventDictionary.setValue(startDateTime, forKey: "startDateTime")
             eventDictionary.setValue(endDateTime, forKey: "endDateTime")

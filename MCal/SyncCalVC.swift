@@ -139,7 +139,7 @@ class SyncCalVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
           
           
                print(self.syncEventList)
-               DBHelper .sharedInstance.deleteLocalCalEventInDB()
+               DBHelper .sharedInstance.deleteAllLocalCalEventInDB()
                DBHelper .sharedInstance.AddLocalCalEventInDB(eventArray: self.syncEventList)
           }
         

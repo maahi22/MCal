@@ -16,15 +16,20 @@ class idGenrator: NSObject {
    public func NewEventid() -> String  {
         
         let defaults = UserDefaults.standard
-        
+    
+        //defaults.removeObject(forKey: "eventd")
+    
+    
         if (defaults.object(forKey: "eventd") != nil) {
         
             let eventid = defaults.object(forKey: "eventd") as! String
             let newId =  Int(eventid)! + 1
-            
-            defaults.set(newId, forKey: "eventd")
+            defaults.set(String(newId), forKey: "eventd")
             return String(newId)
         }else{
+            
+            let newId =   1
+            defaults.set( String(newId), forKey: "eventd")
             return String(1)
         }
     }

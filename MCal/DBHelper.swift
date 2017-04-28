@@ -75,15 +75,17 @@ class DBHelper: NSObject {
         
     }
     
-    public func deleteLocalCalEventInDB(){
+    public func deleteAllLocalCalEventInDB(){
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.getContext()
+        let sort : NSSortDescriptor = NSSortDescriptor(key: "startDateTime", ascending: true)
+        
         
         
         //create a fetch request, telling it about the entity
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CalEvents")
-        
+        fetchRequest.sortDescriptors = [sort]
         // Helpers
         var result = [NSManagedObject]()
         
@@ -125,11 +127,11 @@ class DBHelper: NSObject {
     public func getLocalCalEventInDB() -> NSArray{
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.getContext()
-        
+        let sort : NSSortDescriptor = NSSortDescriptor(key: "startDateTime", ascending: true)
         
         //create a fetch request, telling it about the entity
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CalEvents")
-        
+        fetchRequest.sortDescriptors = [sort]
         // Helpers
         var result = [NSManagedObject]()
         
@@ -150,7 +152,8 @@ class DBHelper: NSObject {
         //mCal Events
         //create a fetch request, telling it about the entity
         let fetchRequest2 = NSFetchRequest<NSFetchRequestResult>(entityName: "Events")
-        
+        fetchRequest2.sortDescriptors = [sort]
+
         // Helpers
         var result2 = [NSManagedObject]()
         
@@ -167,9 +170,21 @@ class DBHelper: NSObject {
         }
         
 
+        let merged = (result + result2).sorted(by: sorterForFileIDASC)
+
         
-        let merged = result + result2
-//        merged.addingObjects(from: result)
+       // let merged = ((result + result2) as Array).sortedArray(using: sort) as! Array
+        
+       // let merged = (result+result2).sortedArrayUsingDescriptors([sort])
+        /*let merged = (result + result2).sorted {
+            
+            guard let s1 = $0["startDateTime"], let s2 = $1["startDateTime"] else {
+                return false
+            }
+            
+                    return s1 < s2
+        }*/
+        //        merged.addingObjects(from: result)
 //        merged.addingObjects(from: result2)
         
         
@@ -177,13 +192,16 @@ class DBHelper: NSObject {
         //[merged sortUsingDescriptors:@[sortDescriptor]];
         
         
-        
+       // let merged : NSArray = result2.sortedArrayUsingDescriptors([sort])
         
         return merged as NSArray;
         
     }
     
-    
+    func sorterForFileIDASC(this:NSManagedObject, that:NSManagedObject) -> Bool {
+        return that.value(forKey: "startDateTime") as! Date > this.value(forKey: "startDateTime") as! Date
+    }
+
     
     
     //Add attendes
@@ -240,7 +258,9 @@ class DBHelper: NSObject {
         let fmt = DateFormatter()
         fmt.dateFormat = "dd/MM/yyyy"
         manageObj.setValue(fmt.string(from:strttime), forKey: "startDate")
+        manageObj.setValue(eventData.value(forKey: "image"), forKey: "image")
         
+
         
         //save the object
         do {
@@ -255,8 +275,6 @@ class DBHelper: NSObject {
         callback(true)
         
     }
-    
-    
     
     public func UpdateMCalEventDB (eventObj :NSManagedObject , callback:((_ Result :Bool) -> Void)){
       
@@ -292,37 +310,30 @@ class DBHelper: NSObject {
     }
     
     
-    
-   /* public func UpdateMCalEventInDB (eventManageObj :NSManagedObject ,eventID : String){
+    //Delete MCal Event
+    public func DeleteMCalEventDB (eventObj :NSManagedObject , callback:((_ Result :Bool) -> Void)){
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.getContext()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Events")
+        let calid = eventObj.value(forKey: "eventId") as! String
+        fetchRequest.predicate =  NSPredicate(format: "eventId == %@",calid )
         
-        //retrieve the entity that we just created
-        let entity =  NSEntityDescription.entity(forEntityName: "Events", in: context)
-        let manageObj = NSManagedObject(entity: entity!, insertInto: context)
+        var result = [NSManagedObject]()
         
-        //set the entity values
-        manageObj.setValue(eventData.value(forKey: "title"), forKey: "title")
-        manageObj.setValue("", forKey: "calenderEventId")
+        do {
+            // Execute Fetch Request
+            let records = try context.fetch(fetchRequest)
+            if let records = records as? [NSManagedObject] {
+                result = records
+            }
+        } catch {
+            print("Unable to fetch managed objects for entity .")
+        }
         
-        manageObj.setValue(eventData.value(forKey: "startDateTime"), forKey: "startDateTime")
-        manageObj.setValue(eventData.value(forKey: "endDateTime"), forKey: "endDateTime")
-        
-        manageObj.setValue(eventData.value(forKey: "startDate"), forKey: "startDate")
-        manageObj.setValue(false, forKey: "isRoadTravel")
-        
-        
-        // manageObj.setValue(event.location, forKey: "displayName")
-        manageObj.setValue(eventData.value(forKey: "rRule"), forKey: "rRule")
-        manageObj.setValue(eventData.value(forKey: "isRecurring"), forKey: "isRecurring")
-        manageObj.setValue(eventData.value(forKey: "isAllDay"), forKey: "isAllDay")
-        // manageObj.setValue(event., forKey: "isMultiDay")
-        // manageObj.setValue(event.attendees, forKey: "attendees")
-        manageObj.setValue(eventData.value(forKey: "notes"), forKey: "notes")
-        manageObj.setValue(eventData.value(forKey: "hasNotes"), forKey: "hasNotes")
-        manageObj.setValue(eventData.value(forKey: "startDateTime"), forKey: "creationDate")
-        
+        for obj in result {
+            context.delete(obj)
+        }
         
         //save the object
         do {
@@ -334,11 +345,45 @@ class DBHelper: NSObject {
             
         }
         
-        
+        callback(true)
     }
-    */
     
-    
+    //DeleteLocalCal
+    public func DeleteLocalCalEventDB (eventObj :NSManagedObject , callback:((_ Result :Bool) -> Void)){
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.getContext()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CalEvents")
+        let calid = eventObj.value(forKey: "calenderEventId") as! String
+        fetchRequest.predicate =  NSPredicate(format: "calenderEventId == %@",calid )
+        var result = [NSManagedObject]()
+        
+        do {
+            // Execute Fetch Request
+            let records = try context.fetch(fetchRequest)
+            if let records = records as? [NSManagedObject] {
+                result = records
+            }
+        } catch {
+            print("Unable to fetch managed objects for entity .")
+        }
+        
+        for obj in result {
+            context.delete(obj)
+        }
+        
+        //save the object
+        do {
+            try context.save()
+            print("saved!")
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        } catch {
+            
+        }
+        
+        callback(true)
+    }
     
     
 }
