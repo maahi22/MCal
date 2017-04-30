@@ -12,7 +12,9 @@ import CoreData
 class MaxiVC: UIViewController {
 
    // var editManageobj = NSManagedObject()
-     var editManageobj : NSManagedObject!
+    var editManageobj : NSManagedObject!
+    var attendiesList = NSMutableArray()
+    
     
     @IBOutlet weak var eventImageView: UIImageView!
     @IBOutlet weak var lblDates: UILabel!

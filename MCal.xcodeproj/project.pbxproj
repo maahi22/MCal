@@ -14,6 +14,8 @@
 		0F01AA161EAE380000AC46B8 /* AddEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01AA151EAE380000AC46B8 /* AddEditCell.swift */; };
 		0F01AA181EAE493E00AC46B8 /* AddEventTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01AA171EAE493E00AC46B8 /* AddEventTitleCell.swift */; };
 		0F01AA1D1EAF0A7D00AC46B8 /* EventTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F01AA1C1EAF0A7D00AC46B8 /* EventTypeVC.swift */; };
+		0F0438AB1EB5D8FB00520F0C /* MaxiVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0438AA1EB5D8FB00520F0C /* MaxiVC+TableView.swift */; };
+		0F0438AD1EB5DA3300520F0C /* MaxiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0438AC1EB5DA3300520F0C /* MaxiCell.swift */; };
 		0F04776E1E4B6DAC00496018 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F04776D1E4B6DAC00496018 /* AppDelegate.swift */; };
 		0F0477701E4B6DAC00496018 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F04776F1E4B6DAC00496018 /* ViewController.swift */; };
 		0F0477731E4B6DAC00496018 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F0477711E4B6DAC00496018 /* Main.storyboard */; };
@@ -65,6 +67,8 @@
 		0F01AA151EAE380000AC46B8 /* AddEditCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEditCell.swift; sourceTree = "<group>"; };
 		0F01AA171EAE493E00AC46B8 /* AddEventTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventTitleCell.swift; sourceTree = "<group>"; };
 		0F01AA1C1EAF0A7D00AC46B8 /* EventTypeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTypeVC.swift; sourceTree = "<group>"; };
+		0F0438AA1EB5D8FB00520F0C /* MaxiVC+TableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MaxiVC+TableView.swift"; sourceTree = "<group>"; };
+		0F0438AC1EB5DA3300520F0C /* MaxiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaxiCell.swift; sourceTree = "<group>"; };
 		0F04776A1E4B6DAC00496018 /* MCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F04776D1E4B6DAC00496018 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F04776F1E4B6DAC00496018 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 				0F01AA171EAE493E00AC46B8 /* AddEventTitleCell.swift */,
 				0F1F7ACF1EAF56F800902983 /* ContactCell.swift */,
 				0F1F7AD11EAF5E0500902983 /* AttendeesCell.swift */,
+				0F0438AC1EB5DA3300520F0C /* MaxiCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 				0F00C09A1EA3755500761ED4 /* MaxiVC.swift */,
 				0F00C09C1EA3756B00761ED4 /* EventAddEditVC.swift */,
 				0FFF88291EAC8B29001B57E3 /* SyncCalVC.swift */,
+				0F0438AA1EB5D8FB00520F0C /* MaxiVC+TableView.swift */,
 			);
 			name = MainController;
 			sourceTree = "<group>";
@@ -553,6 +559,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F0438AD1EB5DA3300520F0C /* MaxiCell.swift in Sources */,
 				0F00C09B1EA3755500761ED4 /* MaxiVC.swift in Sources */,
 				0F01AA181EAE493E00AC46B8 /* AddEventTitleCell.swift in Sources */,
 				0F0477761E4B6DAC00496018 /* MCal.xcdatamodeld in Sources */,
@@ -568,6 +575,7 @@
 				0F1F7AD01EAF56F800902983 /* ContactCell.swift in Sources */,
 				0F0477701E4B6DAC00496018 /* ViewController.swift in Sources */,
 				0F01AA141EAE37E900AC46B8 /* DatePickerCell.swift in Sources */,
+				0F0438AB1EB5D8FB00520F0C /* MaxiVC+TableView.swift in Sources */,
 				0FFF276B1EAB9F05001AFBCD /* DBHelper.swift in Sources */,
 				0F1F7AD41EAF7F5D00902983 /* idGenrator.swift in Sources */,
 				0FFF27611EAB794C001AFBCD /* DateHelper.swift in Sources */,
