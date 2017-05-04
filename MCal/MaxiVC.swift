@@ -50,7 +50,12 @@ class MaxiVC: UIViewController {
         dateFormatter.dateFormat = "EEE, dd MMM"
         lblDates.text = dateFormatter.string(from: (editManageobj.value(forKey: "startDateTime") as? Date)!)
         
+        print(editManageobj)
         
+        let array = editManageobj.objectIDs(forRelationshipNamed: "attendee") as NSArray
+        if array.count > 0 {
+            attendiesList = array as! NSMutableArray
+        }
         
         
         if editManageobj != nil && editManageobj.value(forKey: "image") != nil{

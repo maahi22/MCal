@@ -75,6 +75,8 @@ class EventTypeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int{
+        
+       // print("hi") ; print("2")
         return 2
     }
     

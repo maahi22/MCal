@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-
+import Contacts
 
 class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate,EventTypeVCDelegate ,AddAttendeesVCDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
@@ -25,6 +25,7 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
     var endDateTime = Date()
     var editManageobj : NSManagedObject!
     var selImage = UIImage()
+    var attendeasArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -355,11 +356,15 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         eventDictionary.setObject(attendies, forKey: "attendies" as NSCopying)
         
+       
+        
         var xaxes = 10
         for obj in attendies{
             
            // var imageViewObject :UIImageView
            
+           let co  = obj
+            
             let myImageView:UIImageView = UIImageView()
             //myImageView.image = myImage
             myImageView.contentMode = UIViewContentMode.scaleAspectFit
@@ -376,8 +381,42 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
             
             xaxes += 40
             
+            
+          attendeasArray.add(self.addAttendes(val: obj as! NSDictionary ))
         }
     }
+    
+    
+    
+    func addAttendes(val:NSDictionary) -> NSDictionary {
+        
+        
+        let dict = NSMutableDictionary()
+        //set the entity values
+        dict.setValue(val.value(forKey: "givenName"), forKey: "displayName")
+        dict.setValue(val.value(forKey: "emailAddresses"), forKey: "emailId")
+        dict.setValue("", forKey: "eventCalId")
+        dict.setValue("", forKey: "eventId")
+        dict.setValue("", forKey: "firstName")
+        dict.setValue("", forKey: "imageUrl")
+        dict.setValue( String(describing: val.value(forKey: "phoneNumbers")) , forKey: "phoneNo")
+        dict.setValue("", forKey: "status")
+        dict.setValue("", forKey: "userId")
+        dict.setValue("", forKey: "initails")
+        dict.setValue (false, forKey: "isDelay")
+        dict.setValue("", forKey: "localCalSts")
+        dict.setValue("", forKey: "ownerId")
+        
+        
+        
+        print("Attend  \(val)")
+        
+        return dict
+    }
+    
+    
+    
+    
     
     
     //Date picker
@@ -516,12 +555,14 @@ class EventAddEditVC: UIViewController,UITableViewDataSource,UITableViewDelegate
             eventDictionary.setValue(startDateTime, forKey: "creationDate")
             eventDictionary.setValue(title, forKey: "title")
         
-            DBHelper.sharedInstance.AddMCalEventInDB(eventData: eventDictionary) { (result) in
+            DBHelper.sharedInstance.AddMCalEventInDB(eventData: eventDictionary ,attendeas:attendeasArray) { (result) in
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: refreshDate), object: nil)
                 
                 let _ = self.navigationController?.popViewController(animated: true)
             }
+            
+            
             
         }
         

@@ -205,7 +205,49 @@ class DBHelper: NSObject {
     
     
     //Add attendes
-    func AddAttendes(attendes : NSArray)  {
+    func AddAttendes (attendes : NSArray, eventObj : NSManagedObject)  {
+        
+        
+       // for (int i = 0 i< attendes.count i++ ) {
+            for index in 1...attendes.count{
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.getContext()
+            
+            //retrieve the entity that we just created
+            let entity =  NSEntityDescription.entity(forEntityName: "Attendees", in: context)
+            let manageObj = NSManagedObject(entity: entity!, insertInto: context)
+            
+            let eventData = attendes.object(at: index) as! NSDictionary
+                
+            //set the entity values
+            manageObj.setValue(eventData.value(forKey: "displayName"), forKey: "displayName")
+            manageObj.setValue("emailId", forKey: "emailId")
+            manageObj.setValue(eventData.value(forKey: "eventCalId"), forKey: "eventCalId")
+            manageObj.setValue(eventObj.value(forKey: "eventId"), forKey: "eventId")
+            manageObj.setValue(eventData.value(forKey: "firstName"), forKey: "firstName")
+            manageObj.setValue("", forKey: "imageUrl")
+            manageObj.setValue(eventData.value(forKey: "phoneNo"), forKey: "phoneNo")
+            manageObj.setValue(0, forKey: "status")
+            manageObj.setValue(eventData.value(forKey: "userId"), forKey: "userId")
+            manageObj.setValue(eventData.value(forKey: "initails"), forKey: "initails")
+            manageObj.setValue (false, forKey: "isDelay")
+            manageObj.setValue(false, forKey: "localCalSts")
+            manageObj.setValue("", forKey: "ownerId")
+            
+//            manageObj.objectID//objectIDs(forRelationshipNamed: event)  (eventObj, forKey: "event")
+//            eventObj.setValue(manageObj, forKey: "attendee")
+            //save the object
+            do {
+                try context.save()
+                print("saved!")
+            } catch let error as NSError  {
+                print("Could not save \(error), \(error.userInfo)")
+            } catch {
+                
+            }
+            
+        }
         
     }
     
@@ -220,7 +262,7 @@ class DBHelper: NSObject {
     
     
     //Add MCal Events
-    public func AddMCalEventInDB (eventData :NSDictionary , callback:((_ Result :Bool) -> Void)){
+    public func AddMCalEventInDB (eventData :NSDictionary, attendeas :NSArray  , callback:((_ Result :Bool) -> Void)){
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.getContext()
@@ -272,6 +314,12 @@ class DBHelper: NSObject {
             
         }
         
+        self.AddAttendes(attendes: attendeas, eventObj: manageObj)
+        /*self.addEventToCalendar(eventData: eventData) { (status, error) in
+        
+            
+            
+        }*/
         callback(true)
         
     }
@@ -308,6 +356,50 @@ class DBHelper: NSObject {
         
         callback(true)
     }
+    
+    
+   //Local Cal
+    func addEventToCalendar(eventData :NSDictionary, completion: ((_ success: Bool, _ error: NSError?) -> Void)? = nil) {
+        
+        let eventStore = EKEventStore()
+        
+        eventStore.requestAccess(to: .event, completion: { (granted, error) in
+            if (granted) && (error == nil) {
+                
+                let event = EKEvent(eventStore: eventStore)
+                event.title = eventData.value(forKey: "title") as! String
+                event.startDate = eventData.value(forKey: "startDateTime") as! Date
+                event.endDate = eventData.value(forKey: "endDateTime") as! Date
+                event.notes = eventData.value(forKey: "notes") as! String?
+                event.calendar = eventStore.defaultCalendarForNewEvents
+                do {
+                    try eventStore.save(event, span: .thisEvent)
+                } catch let e as NSError {
+                    completion?(false, e)
+                    return
+                }
+                completion?(true, nil)
+            } else {
+                completion?(false, error as NSError?)
+            }
+        })
+    }
+    
+  /*  func UpdateEventToCalendar(eventData :NSDictionary, completion: ((_ success: Bool, _ error: NSError?) -> Void)? = nil) {
+    let eventStore = EKEventStore()
+        eventStore.requestAccess(to: .event, completion: { (granted, error) in
+            if (granted) && (error == nil) {
+             
+            let  identifier = eventData.value(forKey: "eventId");
+                //eventId
+            let storeEvent = eventStore.event(withIdentifier: identifier as! String) ;
+              identifier
+         completion?(true, nil)
+            }
+    })
+    }*/
+    
+    
     
     
     //Delete MCal Event

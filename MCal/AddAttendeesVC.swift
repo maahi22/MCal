@@ -24,8 +24,13 @@ class AddAttendeesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     let contactlist = NSMutableArray()
     let selectedContact = NSMutableArray()
+    let addedContacts = NSMutableArray()
     var contactStore = CNContactStore()
     var contacts = [CNContact]()
+    
+    @IBOutlet weak var attendesTable: UITableView!
+   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +42,7 @@ class AddAttendeesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         
         
-        let keys = [CNContactFormatter.descriptorForRequiredKeys (for: .fullName), CNContactEmailAddressesKey, CNContactBirthdayKey, CNContactImageDataKey] as [Any]
+       /* let keys = [CNContactFormatter.descriptorForRequiredKeys (for: .fullName), CNContactEmailAddressesKey, CNContactBirthdayKey, CNContactImageDataKey] as [Any]
         let request = CNContactFetchRequest(keysToFetch: keys as! [CNKeyDescriptor])
         
         do {
@@ -53,12 +58,64 @@ class AddAttendeesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         
         
-        print(contacts)
+        print(contacts)*/
         
         
+        self.getContacts()
         
     }
 
+    
+    func getContacts() {
+        let store = CNContactStore()
+        
+        if CNContactStore.authorizationStatus(for: .contacts) == .notDetermined {
+            store.requestAccess(for: .contacts, completionHandler: { (authorized: Bool, error: NSError?) -> Void in
+                if authorized {
+                    self.retrieveContactsWithStore(store: store)
+                }
+            } as! (Bool, Error?) -> Void)
+        } else if CNContactStore.authorizationStatus(for: .contacts) == .authorized {
+            self.retrieveContactsWithStore(store: store)
+        }
+    }
+    
+    
+    func retrieveContactsWithStore(store: CNContactStore) {
+        do {
+            
+            let keys = [CNContactFormatter.descriptorForRequiredKeys (for: .fullName), CNContactEmailAddressesKey, CNContactPhoneNumbersKey, CNContactBirthdayKey,CNContactFamilyNameKey,CNContactOrganizationNameKey,CNContactPostalAddressesKey, CNContactImageDataKey] as [Any]
+            
+            
+//            let groups = try store.groups(matching: nil)
+//            let predicate = CNContact.predicateForContactsInGroup(withIdentifier: groups[0].identifier)
+            //let predicate = CNContact.predicateForContactsMatchingName("John")
+           // let keysToFetch = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactEmailAddressesKey] as [Any]
+            
+           // let contacts = try store.unifiedContacts(matching: predicate, keysToFetch: keys as! [CNKeyDescriptor])
+           
+           // self.contacts = contacts
+            //self.objects = contacts
+
+            let request = CNContactFetchRequest(keysToFetch: keys as! [CNKeyDescriptor])
+            do {
+                try self.contactStore.enumerateContacts(with: request) {
+                    (contact, stop) in
+                    // Array containing all unified contacts from everywhere
+                    self.contacts.append(contact)
+                }
+            }
+            
+//            DispatchQueue.main.async(execute: {
+//                self.attendesTable.reloadData()
+//            })
+                
+            
+        } catch {
+            print(error)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -74,16 +131,6 @@ class AddAttendeesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         // Pass the selected object to the new view controller.
     }
     */
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -135,12 +182,31 @@ class AddAttendeesVC: UIViewController,UITableViewDelegate,UITableViewDataSource
         }else
         {
             selectedContact.add(str)
+            
+            var dict = NSMutableDictionary()
+            dict.setValue("", forKey: "givenName")
+            dict.setValue("", forKey: "emailAddresses")
+            dict.setValue("", forKey: "phoneNumbers")
+            dict.setValue("", forKey: "organizationName")
+            dict.setValue("", forKey: "familyName")
+            dict.setValue("", forKey: "postalAddresses")
+            
+            dict.setValue(contacts[indexPath.row].givenName, forKey: "givenName")
+            dict.setValue(contacts[indexPath.row].emailAddresses, forKey: "emailAddresses")
+            dict.setValue(contacts[indexPath.row].phoneNumbers, forKey: "phoneNumbers")
+            dict.setValue(contacts[indexPath.row].organizationName, forKey: "organizationName")
+            dict.setValue(contacts[indexPath.row].familyName, forKey: "familyName")
+            dict.setValue(contacts[indexPath.row].postalAddresses, forKey: "postalAddresses")
+            
+            
+            
+            addedContacts.add(dict)
         }
     }
     
 
     @IBAction func DoneClicked(_ sender: AnyObject) {
-        delegate?.savedAttendes(attendies: selectedContact)
+        delegate?.savedAttendes(attendies: addedContacts)
         //self.navigationController?.popViewController(animated: true)
         let _ = self.navigationController?.popViewController(animated: true)
     }

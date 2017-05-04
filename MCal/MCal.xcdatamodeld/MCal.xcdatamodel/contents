@@ -2,11 +2,22 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Attendees" syncable="YES">
         <attribute name="attendeesId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="emailId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventCalId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="eventId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fullname" transient="YES" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="imageUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="initails" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isDelay" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="localCalSts" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="ownerId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phoneNo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="calEvent" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CalEvents" inverseName="attendee" inverseEntity="CalEvents" syncable="YES"/>
         <relationship name="event" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Events" inverseName="attendee" inverseEntity="Events" syncable="YES"/>
     </entity>
@@ -85,7 +96,7 @@
         <relationship name="events" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Events" inverseName="location" inverseEntity="Events" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Attendees" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="Attendees" positionX="-63" positionY="-18" width="128" height="330"/>
         <element name="Calendars" positionX="-36" positionY="153" width="128" height="120"/>
         <element name="CalEvents" positionX="-45" positionY="108" width="128" height="435"/>
         <element name="Events" positionX="-54" positionY="-9" width="128" height="435"/>
